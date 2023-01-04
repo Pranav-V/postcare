@@ -69,7 +69,7 @@ const styles = StyleSheet.create({
       fontSize: 40,
       fontWeight: '700',
       textAlign: 'center',
-      margin: '10%'
+      margin: '5%'
     },
     subtitle: {
       fontSize: 25,
