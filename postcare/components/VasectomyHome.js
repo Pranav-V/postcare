@@ -22,7 +22,7 @@ const VasectomyHome = ({navigation}) => {
     const [hasData, setData] = useState(false);
     const [first, setFirst] = useState('');
     const [last, setLast] = useState('');
-    const [year, setYear] = useState('');
+    const [date, setDate] = useState('');
     const [MRN, setMRN] = useState('');
 
     const storeData = async (key, value) => {
@@ -45,11 +45,11 @@ const VasectomyHome = ({navigation}) => {
     
 
     useEffect(() => {
-      getData('MRN')
+      getData('v_first')
         .then(res => {
           if (res != null) {
-            AsyncStorage.clear()
-            //setData(true)
+            setData(true)
+            setFirst(res)
           }
         })
     }, [])
@@ -57,7 +57,7 @@ const VasectomyHome = ({navigation}) => {
     return (
         (!hasData ?
         <>
-          <ScrollView>
+          <SafeAreaView style = {{flex: 1, justifyContent: 'center'}}>
             <Text style = {[styles.title, {margin:'10%'}]}>Create Profile</Text>
             <Fumi
               style = {styles.inputField}
@@ -91,7 +91,7 @@ const VasectomyHome = ({navigation}) => {
             />
             <Fumi
               style = {styles.inputField}
-              label={'Year of Procedure'}
+              label={'Procedure Date'}
               passiveIconColor='#000000'
               labelStyle={{color:'#000000'}}
               iconClass={FontAwesomeIcon}
@@ -101,8 +101,8 @@ const VasectomyHome = ({navigation}) => {
               iconWidth={40}
               inputPadding={22}
               inputStyle={{color:'#000000'}}
-              value = {year}
-              onChangeText = {setYear}
+              value = {date}
+              onChangeText = {setDate}
             />
             <Fumi
               style = {styles.inputField}
@@ -127,16 +127,19 @@ const VasectomyHome = ({navigation}) => {
                 titleStyle = {styles.button}
                 radius = 'md'
                 onPress = {() => {
-                  if (first == '' || last == '' || year == '' || MRN == '') {
+                  if (first == '' || last == '' || date == '' || MRN == '') {
                     setError('All fields are required.')
                   }
                   else {
-                    storeData('MRN', MRN)
+                    storeData('v_MRN', MRN)
+                    storeData('v_first', first)
+                    storeData('v_last', last)
+                    storeData('v_date', date)
                     setData(true)
                   }
                 }}
             />
-          </ScrollView>
+          </SafeAreaView>
         </>
         :
         <>
@@ -144,11 +147,14 @@ const VasectomyHome = ({navigation}) => {
             <Text style = {styles.subtitle}>👋 Hey <Text style = {{color: '#94c942'}}>{first}</Text>!{`\n`} Ready to check-in?</Text>
             <Text style = {styles.title}>Vasectomy Hub</Text>
             <Button
-                title = "Ejaculation Counter"
+                title = "Ejaculation Log"
                 buttonStyle = {{backgroundColor: '#94c942'}}
                 containerStyle = {styles.primaryButton}
                 titleStyle = {styles.button}
                 radius = 'md'
+                onPress={() =>
+                  navigation.navigate('EjaculationLog')
+                }
             />
             <Button
                 title = "Post-Operation Timeline"
@@ -156,6 +162,9 @@ const VasectomyHome = ({navigation}) => {
                 containerStyle = {styles.primaryButton}
                 titleStyle = {styles.button}
                 radius = 'md'
+                onPress={() =>
+                  navigation.navigate('EjaculationTimeline')
+                }
             />
             <Button
                 title = "Patient-Portal"

@@ -11,7 +11,11 @@ import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 
 import Home from './components/Home'
+
 import VasectomyHome from './components/VasectomyHome';
+import EjaculationLog from './components/EjaculationLog'
+import EjaculationTimeline from './components/EjaculationTimeline'
+
 import KidneyHome from './components/KidneyHome'
 
 const Stack = createNativeStackNavigator();
@@ -32,9 +36,19 @@ const App = () => {
           options={{title: '✂️ Post-Operation'}}
         />
         <Stack.Screen
+          name="EjaculationLog"
+          component={EjaculationLog}
+          options={{title: '💦 Ejaculation Log'}}
+        />
+        <Stack.Screen
           name="KidneyHome"
           component={KidneyHome}
           options={{title: '🪨 Post-Operation'}}
+        />
+        <Stack.Screen
+          name="EjaculationTimeline"
+          component={EjaculationTimeline}
+          options={{title: '⌛ Timeline'}}
         />
       </Stack.Navigator> 
     </NavigationContainer>
