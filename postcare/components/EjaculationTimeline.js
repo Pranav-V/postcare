@@ -56,7 +56,7 @@ const EjaculationTimeline = ({navigation}) => {
             "data": [
                 {
                 "title": " + 90 Days",
-                "subtitle": "Conduct SpermCheck test. 💉",
+                "subtitle": "Conduct SpermCheck test.",
                 "date": date + (90 * day)
                 },
             ]
@@ -66,7 +66,7 @@ const EjaculationTimeline = ({navigation}) => {
             "data": [
                 {
                 "title": " + 90 Days",
-                "subtitle": "May begin unprotected sex provided negative SpermCheck results. 🍑🍆",
+                "subtitle": "May begin unprotected sex provided negative SpermCheck results.",
                 "date": date + (90 * day)
                 },
             ]
@@ -76,7 +76,7 @@ const EjaculationTimeline = ({navigation}) => {
             "data": [
                 {
                 "title": " + 2 Week",
-                "subtitle": "May begin swimming and vigorous activity in lower extremities. 🏊",
+                "subtitle": "May begin swimming and vigorous activity in lower extremities.",
                 "date": date + (14 * day)
                 },
             ]
@@ -86,7 +86,7 @@ const EjaculationTimeline = ({navigation}) => {
           "data": [
             {
               "title": " + 1 Week",
-              "subtitle": "May begin sport activities and sexual intercourse. 🏀🏏",
+              "subtitle": "May begin sport activities and sexual intercourse.",
               "date": date + (7 * day)
             },
           ]
@@ -96,7 +96,7 @@ const EjaculationTimeline = ({navigation}) => {
           "data": [
             {
               "title": "+ 4 Days",
-              "subtitle": "Stop taking daily pain tablets. 💊",
+              "subtitle": "Stop taking daily pain tablets.",
               "date": date + (4 * day)
             }
           ]
@@ -106,7 +106,7 @@ const EjaculationTimeline = ({navigation}) => {
           "data": [
             {
               "title": "+ 1 Day",
-              "subtitle": "Recommended to begin showering. 🚿",
+              "subtitle": "Recommended to begin showering.",
               "date": date + day
             }
           ]
@@ -116,7 +116,7 @@ const EjaculationTimeline = ({navigation}) => {
             "data": [
               {
                 "title": "Operation Date",
-                "subtitle": "You did it! ✂️🍆😫",
+                "subtitle": "You did it!",
                 "date": date
               }
             ]

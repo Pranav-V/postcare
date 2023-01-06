@@ -2,7 +2,7 @@ import {
   SafeAreaView,
   StyleSheet,
   Text,
-  ScrollView,
+  Image,
 } from 'react-native';
 
 import AsyncStorage from '@react-native-async-storage/async-storage';
@@ -20,8 +20,6 @@ const VasectomyHome = ({navigation}) => {
 
     const [error, setError] = useState('')
     const [hasData, setData] = useState(false);
-    const [first, setFirst] = useState('');
-    const [last, setLast] = useState('');
     const [date, setDate] = useState('');
     const [MRN, setMRN] = useState('');
 
@@ -45,11 +43,10 @@ const VasectomyHome = ({navigation}) => {
     
 
     useEffect(() => {
-      getData('v_first')
+      getData('v_MRN')
         .then(res => {
           if (res != null) {
             setData(true)
-            setFirst(res)
           }
         })
     }, [])
@@ -59,36 +56,6 @@ const VasectomyHome = ({navigation}) => {
         <>
           <SafeAreaView style = {{flex: 1, justifyContent: 'center'}}>
             <Text style = {[styles.title, {margin:'10%'}]}>Create Profile</Text>
-            <Fumi
-              style = {styles.inputField}
-              label={'First Name'}
-              passiveIconColor='#000000'
-              labelStyle={{color:'#000000'}}
-              iconClass={FontAwesomeIcon}
-              iconName={'user'}
-              iconColor={'#94c942'}
-              iconSize={20}
-              iconWidth={40}
-              inputPadding={22}
-              inputStyle={{color:'#000000'}}
-              value = {first}
-              onChangeText = {setFirst}
-            />
-            <Fumi
-              style = {styles.inputField}
-              label={'Last Name'}
-              passiveIconColor='#000000'
-              labelStyle={{color:'#000000'}}
-              iconClass={FontAwesomeIcon}
-              iconName={'user'}
-              iconColor={'#94c942'}
-              iconSize={20}
-              iconWidth={40}
-              inputPadding={22}
-              inputStyle={{color:'#000000'}}
-              value = {last}
-              onChangeText = {setLast}
-            />
             <Fumi
               style = {styles.inputField}
               label={'Procedure Date'}
@@ -127,13 +94,17 @@ const VasectomyHome = ({navigation}) => {
                 titleStyle = {styles.button}
                 radius = 'md'
                 onPress = {() => {
-                  if (first == '' || last == '' || date == '' || MRN == '') {
+                  var date_regex = /^\d{2}\/\d{2}\/\d{4}$/ ;
+                  var medical_regex = /[Mm][Rr]\d{5,6}/g;
+                  if (date == '' || MRN == '') {
                     setError('All fields are required.')
+                  } else if (!date_regex.test(date)) {
+                    setError('Incorrect date format.\nUse MM/DD/YYYY.')
+                  } else if (!medical_regex.test(MRN)) {
+                    setError('Incorrect MRN format. \nPlease try again.')
                   }
                   else {
                     storeData('v_MRN', MRN)
-                    storeData('v_first', first)
-                    storeData('v_last', last)
                     storeData('v_date', date)
                     setData(true)
                   }
@@ -143,8 +114,8 @@ const VasectomyHome = ({navigation}) => {
         </>
         :
         <>
-          <SafeAreaView style = {{flex: 2, justifyContent: 'center'}}>
-            <Text style = {styles.subtitle}>👋 Hey <Text style = {{color: '#94c942'}}>{first}</Text>!{`\n`} Ready to check-in?</Text>
+          <SafeAreaView style = {{flex: 2, justifyContent: 'center', alignItems: 'center'}}>
+            <Text style = {styles.subtitle}>👋 Hey there!{`\n`} Ready to check-in?</Text>
             <Text style = {styles.title}>Vasectomy Hub</Text>
             <Button
                 title = "Ejaculation Log"
@@ -172,6 +143,9 @@ const VasectomyHome = ({navigation}) => {
                 containerStyle = {styles.primaryButton}
                 titleStyle = {styles.button}
                 radius = 'md'
+                onPress={() =>
+                  AsyncStorage.clear()
+                }
             />
             <Button
                 title = "Recovery Log"
@@ -186,7 +160,13 @@ const VasectomyHome = ({navigation}) => {
                 containerStyle = {styles.primaryButton}
                 titleStyle = {styles.button}
                 radius = 'md'
+                onPress = {() => {Linking.openURL('https://austinurologyinstitute.com/contact/')}}
             />
+            <Image 
+                  source={require('./images/logo.png')} 
+                  style = {{width: undefined, height: '15%', marginTop: '5%', aspectRatio: 1}} 
+                  resizeMode = 'contain'
+                />
           </SafeAreaView>
         </>)
     );
