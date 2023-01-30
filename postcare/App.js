@@ -13,7 +13,7 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import Home from './components/Home'
 
 import VasectomyHome from './components/VasectomyHome';
-import EjaculationLog from './components/EjaculationLog'
+import EjaculationCounter from './components/EjaculationCounter'
 import EjaculationTimeline from './components/EjaculationTimeline'
 
 import KidneyHome from './components/KidneyHome'
@@ -36,9 +36,9 @@ const App = () => {
           options={{title: '✂️ Post-Operation'}}
         />
         <Stack.Screen
-          name="EjaculationLog"
-          component={EjaculationLog}
-          options={{title: '💦 Ejaculation Log'}}
+          name="EjaculationCounter"
+          component={EjaculationCounter}
+          options={{title: '💦 Ejaculation Counter'}}
         />
         <Stack.Screen
           name="KidneyHome"
@@ -48,7 +48,7 @@ const App = () => {
         <Stack.Screen
           name="EjaculationTimeline"
           component={EjaculationTimeline}
-          options={{title: '⌛ Timeline'}}
+          options={{title: '⌛ Recovery Timeline'}}
         />
       </Stack.Navigator> 
     </NavigationContainer>

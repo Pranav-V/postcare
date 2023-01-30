@@ -14,7 +14,7 @@ const Home = ({navigation}) => {
 
     return (
         <>  
-            <SafeAreaView style = {{flex: 5, justifyContent: 'center', alignItems: 'center'}}>
+            <SafeAreaView style = {{flex: .85, justifyContent: 'center', alignItems: 'center'}}>
                 <Text style = {styles.title}>PostCare</Text>
                 <Text style = {styles.subtitle}>Select Operation</Text>
                 <Button
@@ -53,11 +53,13 @@ const Home = ({navigation}) => {
                     titleStyle = {styles.button}
                     radius = 'md'
                 />
-                <Image 
-                  source={require('./images/logo.png')} 
-                  style = {{width: undefined, height: '15%', marginTop: '5%', aspectRatio: 1}} 
-                  resizeMode = 'contain'
-                />
+            </SafeAreaView>
+            <SafeAreaView  style = {{flex: .15, justifyContent: 'center', alignItems: 'center'}}>
+              <Image 
+                    source={require('./images/logo.png')} 
+                    style = {styles.logo} 
+                    resizeMode = 'contain'
+              />
             </SafeAreaView>
         </>
     );
@@ -93,6 +95,11 @@ const styles = StyleSheet.create({
       marginLeft: '15%',
       marginRight: '15%',
       width: '70%',
+    },
+    logo: {
+      width: undefined, 
+      height: '100%', 
+      aspectRatio: 1,
     }
 });
 

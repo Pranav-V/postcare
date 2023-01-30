@@ -11,13 +11,13 @@ import {Button} from '@rneui/themed'
 import {useEffect, useState} from 'react'
 import CircularProgress from 'react-native-circular-progress-indicator';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import TypeWriter from 'react-native-typewriter'
 
 
-const EjaculationLog = ({navigation}) => {
+const EjaculationCounter = ({navigation}) => {
 
     const [ejaculation, setEjaculations] = useState(0);
     const [test, setTest] = useState(false)
+    const [testNumber, setTestNum] = useState(1)
     const [passed, setPassed] = useState(false)
 
     const [iseen, setIseen] = useState(false)
@@ -71,7 +71,7 @@ const EjaculationLog = ({navigation}) => {
         iseen ?
         <>
             <SafeAreaView style = {{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-                <Text style = {styles.subtitle}>{ejaculation < 15 ? `Keep on going! \n` : (ejaculation < 25 ? `Almost there! \n` : (ejaculation == 30 ? `🎊 Log complete! \n` : `Just a bit more! \n`))} <Text style = {{color: '#94c942'}}>{30 - ejaculation}</Text> ejaculation(s) left.</Text>
+                <Text style = {[styles.subtitle, styles.note, {borderColor: '#94c942'}]}>{ejaculation < 15 ? `Keep on going! \n` : (ejaculation < 25 ? `Almost there! \n` : (ejaculation == 30 ? `🎊 Complete! 🎊\n` : `Just a bit more! \n`))} <Text style = {{color: '#94c942'}}>{30 - ejaculation}</Text> ejaculation{ejaculation != 29 ? "s" : ""} left.</Text>
                 <CircularProgress
                     value={ejaculation}
                     radius={140}
@@ -115,7 +115,7 @@ const EjaculationLog = ({navigation}) => {
                     />
                     :
                     <>
-                        <Text style = {[styles.subtitle, {marginTop: '15%', marginBottom: '0%'}]}>At-Home Test Results</Text>
+                        <Text style = {[styles.subtitle, {marginTop: '15%', marginBottom: '0%'}]}>At-Home Test #{testNumber} Results</Text>
                         {
                             passed || !test? 
                             <Button
@@ -125,11 +125,16 @@ const EjaculationLog = ({navigation}) => {
                                 titleStyle = {styles.button}
                                 radius = 'md'
                                 onPress = {() => {
-                                    storeData('v_hometest', 'passed')
+                                    if (testNumber == 1) {
+                                        setTestNum(2)
+                                        Alert.alert('🎉 Congratulations! TODO')
+                                    } else {
+                                        storeData('v_hometest', 'passed')
                                         .then(res => {
                                             setPassed(true)
                                             setTest(true)
                                         })
+                                    }
                                 }}
                             />
                             :
@@ -165,13 +170,13 @@ const EjaculationLog = ({navigation}) => {
         :
         <>
             <SafeAreaView style = {{flex: 1, justifyContent: 'center', alignItems: 'center', marginLeft: '5%', marginRight: '5%'}}>
-                <TypeWriter onTypingEnd = {() => {setText(true)}} typing={1} maxDelay = {50} fixed = {true} style = {styles.subtitle}>{`The ejaculation log will digitally record the number of ejaculations logged post-operation, and will notify you once the thirty ejaculations needed before conducting the at-home test are completed.`}</TypeWriter>
+                <Text style = {[styles.subtitle, styles.note, {color: '#000000'}]}>{`The ejaculation log will digitally record the number of ejaculations logged post-operation, and will notify you once the thirty ejaculations needed before conducting the at-home test are completed.`}</Text>
                 {
-                    text ?
+                    text || true?
                     <Button
-                        title = {"Proceed"}
-                        buttonStyle = {{backgroundColor: '#94c942'}}
-                        containerStyle = {[styles.primaryButton, {marginTop: '5%'}]}
+                        title = "Proceed"
+                        buttonStyle = {{backgroundColor: '#000000'}}
+                        containerStyle = {[styles.primaryButton, {marginVertical: 30}]}
                         titleStyle = {styles.button}
                         radius = 'md'
                         onPress = {() => {
@@ -195,6 +200,12 @@ const styles = StyleSheet.create({
         fontWeight: '700',
         textAlign: 'center',
         margin: '5%'
+    },
+    note: {
+        borderColor: '#00000',
+        padding: 10,
+        borderWidth: 3,
+        borderRadius: 9,
     },
     subtitle: {
         fontSize: 25,
@@ -227,8 +238,8 @@ const styles = StyleSheet.create({
         textAlign: 'center',
         margin: '5%',
         color: '#464646'
-    },
+    }
 });
 
-export default EjaculationLog;
+export default EjaculationCounter;
 

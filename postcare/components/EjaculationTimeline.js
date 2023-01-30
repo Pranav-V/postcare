@@ -51,76 +51,76 @@ const EjaculationTimeline = ({navigation}) => {
     }, [])
 
     var data = [
-        {
-            "date": date + (90 * day),
-            "data": [
-                {
-                "title": " + 90 Days",
-                "subtitle": "Conduct SpermCheck test.",
-                "date": date + (90 * day)
-                },
-            ]
-        },
-        {
-            "date": date + (90 * day),
-            "data": [
-                {
-                "title": " + 90 Days",
-                "subtitle": "May begin unprotected sex provided negative SpermCheck results.",
-                "date": date + (90 * day)
-                },
-            ]
-        },
-        {
-            "date": date + (14 * day),
-            "data": [
-                {
-                "title": " + 2 Week",
-                "subtitle": "May begin swimming and vigorous activity in lower extremities.",
-                "date": date + (14 * day)
-                },
-            ]
-        },
-        {
-          "date": date + (7 * day),
-          "data": [
+      {
+        "date": date + (90 * day),
+        "data": [
             {
-              "title": " + 1 Week",
-              "subtitle": "May begin sport activities and sexual intercourse.",
-              "date": date + (7 * day)
+            "title": " + 90 Days",
+            "subtitle": "Conduct SpermCheck test. 💉",
+            "date": date + (90 * day)
             },
-          ]
-        },
-        {
-          "date": (date + (4 * day)),
-          "data": [
+        ]
+    },
+    {
+        "date": date + (90 * day),
+        "data": [
             {
-              "title": "+ 4 Days",
-              "subtitle": "Stop taking daily pain tablets.",
-              "date": date + (4 * day)
-            }
-          ]
-        },
-        {
-          "date": date + day,
-          "data": [
+            "title": " + 90 Days",
+            "subtitle": "May begin unprotected sex provided negative SpermCheck results. 🍑🍆",
+            "date": date + (90 * day)
+            },
+        ]
+    },
+    {
+        "date": date + (14 * day),
+        "data": [
             {
-              "title": "+ 1 Day",
-              "subtitle": "Recommended to begin showering.",
-              "date": date + day
-            }
-          ]
-        },
+            "title": " + 2 Week",
+            "subtitle": "May begin swimming and vigorous activity in lower extremities. 🏊",
+            "date": date + (14 * day)
+            },
+        ]
+    },
+    {
+      "date": date + (7 * day),
+      "data": [
         {
-            "date": date,
-            "data": [
-              {
-                "title": "Operation Date",
-                "subtitle": "You did it!",
-                "date": date
-              }
-            ]
+          "title": " + 1 Week",
+          "subtitle": "May begin sport activities and sexual intercourse. 🏀🏏",
+          "date": date + (7 * day)
+        },
+      ]
+    },
+    {
+      "date": (date + (4 * day)),
+      "data": [
+        {
+          "title": "+ 4 Days",
+          "subtitle": "Stop taking daily pain tablets. 💊",
+          "date": date + (4 * day)
+        }
+      ]
+    },
+    {
+      "date": date + day,
+      "data": [
+        {
+          "title": "+ 1 Day",
+          "subtitle": "Recommended to begin showering. 🚿",
+          "date": date + day
+        }
+      ]
+    },
+    {
+        "date": date,
+        "data": [
+          {
+            "title": "Operation Date",
+            "subtitle": "You did it! ✂️🍆😫",
+            "date": date
           }
+        ]
+      }
     ]
     
     return (

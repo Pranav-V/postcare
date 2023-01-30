@@ -114,21 +114,21 @@ const VasectomyHome = ({navigation}) => {
         </>
         :
         <>
-          <SafeAreaView style = {{flex: 2, justifyContent: 'center', alignItems: 'center'}}>
+          <SafeAreaView style = {{flex: .85, justifyContent: 'center', alignItems: 'center'}}>
             <Text style = {styles.subtitle}>👋 Hey there!{`\n`} Ready to check-in?</Text>
             <Text style = {styles.title}>Vasectomy Hub</Text>
             <Button
-                title = "Ejaculation Log"
+                title = "Ejaculation Counter"
                 buttonStyle = {{backgroundColor: '#94c942'}}
                 containerStyle = {styles.primaryButton}
                 titleStyle = {styles.button}
                 radius = 'md'
                 onPress={() =>
-                  navigation.navigate('EjaculationLog')
+                  navigation.navigate('EjaculationCounter')
                 }
             />
             <Button
-                title = "Post-Operation Timeline"
+                title = "Recovery Timeline"
                 buttonStyle = {{backgroundColor: '#94c942'}}
                 containerStyle = {styles.primaryButton}
                 titleStyle = {styles.button}
@@ -138,7 +138,7 @@ const VasectomyHome = ({navigation}) => {
                 }
             />
             <Button
-                title = "Patient-Portal"
+                title = "Recovery Log"
                 buttonStyle = {{backgroundColor: '#94c942'}}
                 containerStyle = {styles.primaryButton}
                 titleStyle = {styles.button}
@@ -148,13 +148,6 @@ const VasectomyHome = ({navigation}) => {
                 }
             />
             <Button
-                title = "Recovery Log"
-                buttonStyle = {{backgroundColor: '#94c942'}}
-                containerStyle = {styles.primaryButton}
-                titleStyle = {styles.button}
-                radius = 'md'
-            />
-            <Button
                 title = "Schedule Appointment"
                 buttonStyle = {{backgroundColor: '#94c942'}}
                 containerStyle = {styles.primaryButton}
@@ -162,12 +155,14 @@ const VasectomyHome = ({navigation}) => {
                 radius = 'md'
                 onPress = {() => {Linking.openURL('https://austinurologyinstitute.com/contact/')}}
             />
-            <Image 
-                  source={require('./images/logo.png')} 
-                  style = {{width: undefined, height: '15%', marginTop: '5%', aspectRatio: 1}} 
-                  resizeMode = 'contain'
-                />
           </SafeAreaView>
+          <SafeAreaView  style = {{flex: .15, justifyContent: 'center', alignItems: 'center'}}>
+              <Image 
+                    source={require('./images/logo.png')} 
+                    style = {styles.logo} 
+                    resizeMode = 'contain'
+              />
+            </SafeAreaView>
         </>)
     );
 };
@@ -219,6 +214,10 @@ const styles = StyleSheet.create({
       borderColor: '#464646',
       justifyContent:'center',
       borderRadius: 8
+    }, logo: {
+      width: undefined, 
+      height: '100%', 
+      aspectRatio: 1,
     }
 });
 
