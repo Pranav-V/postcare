@@ -1,4 +1,3 @@
-
 import {
   SafeAreaView,
   Linking,
@@ -36,15 +35,6 @@ const Home = ({navigation}) => {
                     onPress={() =>
                       navigation.navigate('KidneyHome')
                   }
-                />
-                <Button
-                    style = {{marginTop: '5%'}}
-                    title = "Austin Urology Institute"
-                    buttonStyle = {{backgroundColor: '#464646'}}
-                    containerStyle = {styles.secondaryButton}
-                    titleStyle = {styles.button}
-                    radius = 'md'
-                    onPress = {() => Linking.openURL('https://austinurologyinstitute.com')}
                 />
                 <Button
                     title = "More"
@@ -92,9 +82,9 @@ const styles = StyleSheet.create({
     },
     secondaryButton: {
       marginVertical: 10,
-      marginLeft: '15%',
-      marginRight: '15%',
-      width: '70%',
+      marginLeft: '30%',
+      marginRight: '30%',
+      width: '40%',
     },
     logo: {
       width: undefined, 

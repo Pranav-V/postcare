@@ -14,7 +14,8 @@ import Home from './components/Home'
 
 import VasectomyHome from './components/VasectomyHome';
 import EjaculationCounter from './components/EjaculationCounter'
-import EjaculationTimeline from './components/EjaculationTimeline'
+import VasectomyTimeline from './components/VasectomyTimeline'
+import VasectomyFAQ from './components/VasectomyFAQ';
 
 import KidneyHome from './components/KidneyHome'
 
@@ -46,9 +47,14 @@ const App = () => {
           options={{title: '🪨 Post-Operation'}}
         />
         <Stack.Screen
-          name="EjaculationTimeline"
-          component={EjaculationTimeline}
+          name="VasectomyTimeline"
+          component={VasectomyTimeline}
           options={{title: '⌛ Recovery Timeline'}}
+        />
+        <Stack.Screen
+          name="VasectomyFAQ"
+          component={VasectomyFAQ}
+          options={{title: '🤨 FAQ'}}
         />
       </Stack.Navigator> 
     </NavigationContainer>

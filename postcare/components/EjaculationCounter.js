@@ -71,7 +71,7 @@ const EjaculationCounter = ({navigation}) => {
         iseen ?
         <>
             <SafeAreaView style = {{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-                <Text style = {[styles.subtitle, styles.note, {borderColor: '#94c942'}]}>{ejaculation < 15 ? `Keep on going! \n` : (ejaculation < 25 ? `Almost there! \n` : (ejaculation == 30 ? `🎊 Complete! 🎊\n` : `Just a bit more! \n`))} <Text style = {{color: '#94c942'}}>{30 - ejaculation}</Text> ejaculation{ejaculation != 29 ? "s" : ""} left.</Text>
+                {/* <Text style = {[styles.subtitle, styles.note, {borderColor: '#464646'}, {fontVariant: ['tabular-nums']}]}>{ejaculation < 15 ? `Keep on going! \n` : (ejaculation < 25 ? `Almost there! \n` : (ejaculation == 30 ? `Complete!\n` : `Just a bit more! \n`))} <Text style = {{color: '#94c942', fontWeight:'bold'}}>{30 - ejaculation < 10 && ejaculation != 30 ? "0" : ""}{30 - ejaculation}</Text> ejaculation{ejaculation != 29 ? "s" : ""} left.</Text> */}
                 <CircularProgress
                     value={ejaculation}
                     radius={140}

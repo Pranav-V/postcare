@@ -115,7 +115,7 @@ const VasectomyHome = ({navigation}) => {
         :
         <>
           <SafeAreaView style = {{flex: .85, justifyContent: 'center', alignItems: 'center'}}>
-            <Text style = {styles.subtitle}>👋 Hey there!{`\n`} Ready to check-in?</Text>
+            <Text style = {styles.subtitle}>👋 Ready to check-in?</Text>
             <Text style = {styles.title}>Vasectomy Hub</Text>
             <Button
                 title = "Ejaculation Counter"
@@ -134,26 +134,19 @@ const VasectomyHome = ({navigation}) => {
                 titleStyle = {styles.button}
                 radius = 'md'
                 onPress={() =>
-                  navigation.navigate('EjaculationTimeline')
+                  navigation.navigate('VasectomyTimeline')
                 }
             />
             <Button
-                title = "Recovery Log"
-                buttonStyle = {{backgroundColor: '#94c942'}}
-                containerStyle = {styles.primaryButton}
+                title = "FAQ"
+                buttonStyle = {{backgroundColor: '#464646'}}
+                containerStyle = {styles.secondaryButton}
                 titleStyle = {styles.button}
                 radius = 'md'
                 onPress={() =>
-                  AsyncStorage.clear()
+                  navigation.navigate('VasectomyFAQ')
+                  //AsyncStorage.clear()
                 }
-            />
-            <Button
-                title = "Schedule Appointment"
-                buttonStyle = {{backgroundColor: '#94c942'}}
-                containerStyle = {styles.primaryButton}
-                titleStyle = {styles.button}
-                radius = 'md'
-                onPress = {() => {Linking.openURL('https://austinurologyinstitute.com/contact/')}}
             />
           </SafeAreaView>
           <SafeAreaView  style = {{flex: .15, justifyContent: 'center', alignItems: 'center'}}>
@@ -197,13 +190,13 @@ const styles = StyleSheet.create({
       marginVertical: 10,
       marginLeft: '15%',
       marginRight: '15%',
-      width: '70%',
+      width: '70%'
     },
     secondaryButton: {
       marginVertical: 10,
-      marginLeft: '15%',
-      marginRight: '15%',
-      width: '70%',
+      marginLeft: '30%',
+      marginRight: '30%',
+      width: '40%',
     },
     inputField: {
       marginVertical: 10,
